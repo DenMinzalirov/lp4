@@ -772,6 +772,29 @@ window.addEventListener('keydown', (e)=>{
   if (e.key === 'Escape') closePopup();
 });
 
+/* ===== BONUS BUTTON HANDLERS ===== */
+function setupBonusButtonHandlers() {
+  const bonusButtons = document.querySelectorAll('.popup__btn-first');
+  
+  bonusButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Отправляем кастомное событие в React приложение
+      const bonusEvent = new CustomEvent('bonusClaimed', {
+        detail: {
+          amount: 1000,
+          currency: 'EUR',
+          bonus: '250 Free Spins',
+          timestamp: new Date().toISOString(),
+          source: 'game-popup'
+        }
+      });
+      
+      window.dispatchEvent(bonusEvent);
+      console.log('🎯 Отправлено событие bonusClaimed в React приложение');
+    });
+  });
+}
+
 /* ===== INIT ===== */
 window.addEventListener('load', () => {
   // Принудительно скрываем прелоадер
@@ -783,6 +806,9 @@ window.addEventListener('load', () => {
   const spawnCenterScreen = centerXInTrack(spawnEl) + trackX;
   placeChickenAtScreenX(spawnCenterScreen);
   balanceEl.textContent = balanceValue.toFixed(2) + ' EUR';
+  
+  // Настраиваем обработчики кнопок бонуса
+  setupBonusButtonHandlers();
 });
 
 /* ===== MAIN CLICK ===== */
