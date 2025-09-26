@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en" data-country="pl" class="webp webp-alpha webp-animation webp-lossless curr_pl ru hide" data-lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!--<base href="/assets/-pre--chiken-5/index.html">--><base href=".">
+    
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <meta name="format-detection" content="telephone=no">
+    <title>Spiele</title>
+    <link rel="icon" type="image/png" href="./pics/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="./pics/favicon.svg">
+    <link rel="shortcut icon" href="./pics/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./pics/apple-touch-icon.png">
+    <link href="./index_files/main.css" rel="stylesheet">
+  </head>
+
+  <body onload="init();">
+    <div class="preloader hide">
+      <img alt="preloader" src="./index_files/preloader.svg">
+    </div>
+    <div class="blur__wrap">
+      <div class="wrapper">
+        <!-- <div id="particles-js"><canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;"></canvas></div> -->
+        <div class="lang_switcher_outer">
+            <div class="lang_switcher">
+              <div class="curr_lang">
+                <span>
+                </span>
+              </div>
+            </div>
+            <ul class="lang_list">
+              <li class="lang_list_item" data-lang="en">
+                <span>en</span>
+              </li>
+              <li class="lang_list_item" data-lang="de">
+                
+                <span>de</span>
+              </li>
+              <li class="lang_list_item" data-lang="lt">
+                
+                <span>lt</span>
+              </li>
+              <li class="lang_list_item" data-lang="ro">
+                
+                <span>ro</span>
+              </li>
+              <li class="lang_list_item" data-lang="es">
+                
+                <span>es</span>
+              </li>
+              <li class="lang_list_item" data-lang="pl">
+                
+                <span>pl</span>
+              </li>
+              <li class="lang_list_item curr" data-lang="ru">
+                
+                <span>ru</span>
+              </li>
+              <li class="lang_list_item" data-lang="fi">
+                
+                <span>fi</span>
+              </li>
+              <li class="lang_list_item" data-lang="pt">
+                
+                <span>pt</span>
+              </li>
+              <li class="lang_list_item" data-lang="hu">
+                
+                <span>hu</span>
+              </li>
+              <li class="lang_list_item" data-lang="fr">
+                
+                <span>fr</span>
+              </li>
+              <li class="lang_list_item" data-lang="ph">
+                
+                <span>ph</span>
+              </li>
+              <li class="lang_list_item" data-lang="vn">                
+                <span>vn</span>
+              </li>
+              <li class="lang_list_item" data-lang="th">                
+                <span>th</span>
+              </li>
+              <li class="lang_list_item" data-lang="jp">                
+                <span>jp</span>
+              </li>
+              <li class="lang_list_item" data-lang="dk">                
+                <span>dk</span>
+              </li>
+              <li class="lang_list_item" data-lang="no">                
+                <span>no</span>
+              </li>
+              <li class="lang_list_item" data-lang="gr">                
+                <span>gr</span>
+              </li>
+              <li class="lang_list_item" data-lang="lv">
+                <span>lv</span>
+              </li>
+              <li class="lang_list_item" data-lang="ee">
+                <span>ee</span>
+              </li>
+              <li class="lang_list_item" data-lang="sk">
+                <span>sk</span>
+              </li>
+              <li class="lang_list_item" data-lang="bg">
+                <span>bg</span>
+              </li>
+            </ul>
+        </div>
+
+        <div class="container">
+          <div class="game" id="game__wheel">
+            <div id="animation_container">
+              <div class="balance_container">
+                <div class="balance-text">
+                  <span class="en">Balance</span>
+                  <span class="de">Kontostand</span>
+                  <span class="pl">Saldo</span>
+                  <span class="ru">Баланс</span>
+                  <span class="fi">Saldo</span>
+                  <span class="pt">Saldo</span>
+                  <span class="cz">Zůstatek</span>
+                  <span class="es">Saldo</span>
+                  <span class="hu">Egyenleg</span>
+                  <span class="fr">Solde</span>
+                  <span class="ph">Balanse</span>
+                  <span class="vn">Số dư</span>
+                  <span class="th">ยอดคงเหลือ</span>
+                  <span class="jp">残高</span>
+                  <span class="dk">Saldo</span>
+                  <span class="no">Saldo</span>
+                  <span class="gr">Υπόλοιπο</span>
+                  <span class="lt">Balansas</span>
+                  <span class="lv">Bilance</span>
+                  <span class="ee">Saldo</span>
+                  <span class="sk">Zostatok</span>
+                  <span class="bg">Баланс</span>
+                  <span class="ro">Sold</span>
+
+                </div>
+                <div class="balance-count">
+                  <span id="balance">20 EUR</span>
+                </div>
+              </div>
+<div class="game-container" id="game">
+  <!-- ТРЕК: фон + фишки едут вместе -->
+  <div class="track" id="track">
+    <!-- Дверь/спавн: X-координата якоря -->
+    <div class="spawn" style="left:100px;"></div>
+
+    <div class="lanes">
+      <!-- left — центр кружка (из-за translateX(-50%)) -->
+      <div class="lane" style="left:270px;"><img src="pics/coef1.png"  alt="1.50x"></div>
+      <div class="lane" style="left:450px;"><img src="pics/coef2.png"  alt="1.85x"></div>
+      <div class="lane" style="left:635px;"><img src="pics/coef3.png"  alt="1.95x"></div>
+      <div class="lane" style="left:820px;"><img src="pics/coef4.png"  alt="2.00x"></div>
+      <div class="lane" style="left:1000px;"><img src="pics/coef5.png"  alt="2.10x"></div>
+      <div class="lane gold-egg" style="left:1195px;"><img src="pics/gold-egg.png" alt="2.20x"></div>
+    </div>
+  </div>
+
+  <!-- Слой для блёсток (поверх, клики не перехватывает) -->
+  <div class="sparkles" id="sparkles">
+    <div class="sparkles-layer fast"></div>
+    <div class="sparkles-layer slow"></div>
+  </div>
+
+  <!-- Курица — отдельный слой (НЕ ездит с треком) -->
+  <div class="overlay">
+    <img class="chicken" src="pics/chicken.png" alt="Chicken">
+  </div>
+</div>
+
+            </div>
+            <div class="btns btns_ready visible" id="btns_ready">
+              <button type="button" class="claim-btn button disabled" id="cash-btn">
+                <span class="en">Cash Out</span>
+                <span class="de">Auszahlen</span>
+                <span class="pl">Wypłać</span>
+                <span class="ru">Вывести</span>
+                <span class="fi">Nosta</span>
+                <span class="pt">Sacar</span>
+                <span class="cz">Vybrat</span>
+                <span class="es">Retirar</span>
+                <span class="hu">Kifizetés</span>
+                <span class="fr">Retirer</span>
+                <span class="ph">Mag-cashout</span>
+                <span class="vn">Rút tiền</span>
+                <span class="th">ถอนเงิน</span>
+                <span class="jp">キャッシュアウト</span>
+                <span class="dk">Udbetal</span>
+                <span class="no">Ta ut</span>
+                <span class="gr">Ανάληψη</span>
+                <span class="lt">Išmokėti</span>
+                <span class="lv">Izņemt</span>
+                <span class="ee">Välja võtta</span>
+                <span class="sk">Vybrať</span>
+                <span class="bg">Изтеглете печалбата</span>
+                <span class="ro">Retrage câștigurile</span>
+              </button>
+              <button type="button" class="go-btn button" id="go-btn">
+                <span class="en">Go</span>
+                <span class="de">WEITER</span>
+                <span class="pl">DALEJ</span>
+                <span class="ru">ДАЛЕЕ</span>
+                <span class="fi">SEURAAVA</span>
+                <span class="pt">CONTINUAR</span>
+                <span class="cz">DALŠÍ</span>
+                <span class="es">SIGUIENTE</span>
+                <span class="hu">TOVÁBB</span>
+                <span class="fr">SUIVANT</span>
+                <span class="ph">SUSUNOD</span>
+                <span class="vn">TIẾP TỤC</span>
+                <span class="th">ดำเนินการต่อ</span>
+                <span class="jp">次へ</span>
+                <span class="dk">NÆSTE</span>
+                <span class="no">FORTSETT</span>
+                <span class="gr">ΣΥΝΕΧΕΙΑ</span>
+                <span class="lt">TĘSTI</span>
+                <span class="lv">TURPINĀT</span>
+                <span class="ee">JÄTKA</span>
+                <span class="sk">POKRAČOVAŤ</span>
+                <span class="bg">НАПРЕД</span>
+                <span class="ro">MERGERE</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="bg-blue">
+          <div class="bg-bottom">
+            <picture>
+              <source srcset="pics/fire.png" type="image/webp">
+              <img src="./pics/fire.png" alt="bottom">
+            </picture>
+          </div>
+        </div>
+        <img src="pics/MasterCard_Logo 1.png" alt="MasterCard_Logo" class="MasterCard_Logo">
+        <div class="popup popup_1" id="popup1">
+          <div class="popup__inner">
+            <div class="popup__window" id="popup__window_1">
+              <div class="popup__content">
+                <div class="popup__img">
+                  <picture>
+                    <source srcset="pics/chicken.webp" type="image/webp">
+                    <img src="./index_files/chicken.png" alt="chicken">
+                  </picture>
+                </div>
+                <div class="popup__title">
+                  <span class="en">You have won a</span>
+                  <span class="de">Sie haben einen</span>
+                  <span class="pl">Wygrałeś </span>
+                  <span class="ru">Вы выиграли</span>
+                  <span class="fi">Olet voittanut</span>
+                  <span class="pt">Você <br>
+                    ganhou um
+                  </span>
+                  <span class="cz">Vyhráli jste </span>
+                  <span class="es">Has <br>
+                    ganado un
+                  </span>
+                  <span class="hu">Nyereménye </span>
+                  <span class="fr">Vous avez <br>
+                    gagné un</span>
+                  <span class="ph">Nanalo <br>
+                    ka ng</span>
+                  <span class="vn">Bạn đã thắng</span>
+                  <span class="th">คุณได้รับโบนัส </span>
+                  <span class="jp">125% のボーナスと</span>
+                  <span class="dk">Du har <br>
+                    vundet en</span>
+                  <span class="no">Du har <br>
+                    vunnet en</span>
+                  <span class="gr">Κερδίσατε </span>
+                  <span class="lt">Jūs laimėjote </span>
+                  <span class="lv">Jūs esat laimējis</span>
+                  <span class="ee">Olete võitnud</span>
+                  <span class="sk">Vyhrali ste</span>
+                  <span class="bg">Спечелихте</span>
+                  <span class="ro">Ai câștigat un</span>
+                </div>
+                <div class="popup__win">
+                  <span>1 000 EUR</span>
+                </div>
+                <div class="popup__bonus">
+                  <span class="en">
+                    + 250 Free SPINS</span>
+                  <span class="de">
+                    + 250 Freispiele gewonnen</span>
+                  <span class="pl">
+                    + 250 Darmowych Spinów</span>
+                  <span class="ru">
+                    + 250 бесплатных вращений</span>
+                  <span class="fi">
+                    + 250 ilmaiskierrosta</span>
+                  <span class="pt">
+                    + 250 Giros Grátis</span>
+                  <span class="cz">
+                    + 250 zatočení zdarma</span>
+                  <span class="es">
+                    + 250 Giros Gratis</span>
+                  <span class="hu">
+                    + 250 ingyenes pörgetés</span>
+                  <span class="fr">
+                    + 250 Tours Gratuits</span>
+                  <span class="ph">
+                    + 250 Libreng Spins</span>
+                  <span class="vn">
+                    + 250 Quay Miễn Phí</span>
+                  <span class="th">+ 250 ฟรีสปิน</span>
+                  <span class="jp">+ 250 回のフリースピンを獲得しました。</span>
+                  <span class="dk">
+                    + 250 Gratis Spins</span>
+                  <span class="no">
+                    + 250 Gratisspinn
+                  </span>
+                  <span class="gr">
+                    + 250 Δωρεάν Περιστροφές</span>
+                  <span class="lt">
+                    + 250 Nemokamų Sukimų</span>
+                  <span class="lv">
+                    + 250 Bezmaksas Griezieniem</span>
+                  <span class="ee">
+                    
+                    + 250 Tasuta Keerutust</span>
+                  <span class="sk">
+                    + 250 Voľných Spinov</span>
+                  <span class="bg">
+                    + 250 безплатни завъртания</span>
+                  <span class="ro">
+                      + 250 Rotiri Gratuite
+                  </span>
+                </div>
+                <a href="{offer}" class="popup__terms">
+                  <span class="en">Bonus T&amp;C's</span>
+                  <span class="de">Bonus-Bedingungen</span>
+                  <span class="pl">Warunki bonusu</span>
+                  <span class="ru">Условия бонуса</span>
+                  <span class="fi">Bonuksen ehdot</span>
+                  <span class="pt">Termos e Condições do Bônus</span>
+                  <span class="cz">Podmínky bonusu</span>
+                  <span class="es">Términos y condiciones del bono</span>
+                  <span class="hu">Bónusz feltételek</span>
+                  <span class="fr">Termes et conditions du bonus</span>
+                  <span class="ph">Mga Tuntunin at Kondisyon ng Bonus</span>
+                  <span class="vn">Điều khoản và Điều kiện của Bonus</span>
+                  <span class="th">ข้อกำหนดและเงื่อนไขโบนัส</span>
+                  <span class="jp">ボーナス利用規約</span>
+                  <span class="dk">Bonusbetingelser</span>
+                  <span class="no">Bonusvilkår</span>
+                  <span class="gr">Όροι και Προϋποθέσεις του Μπόνους</span>
+                  <span class="lt">Premijos sąlygos</span>
+                  <span class="lv">Bonusa noteikumi</span>
+                  <span class="ee">Boonuse tingimused</span>
+                  <span class="sk">Podmienky bonusu</span>
+                  <span class="bg">Условия за бонуса</span>
+                  <span class="ro">Termeni și condiții bonus</span>
+                </a>
+                <a href="{offer}" class="popup__btn popup__btn-first button go-btn">
+                  <span class="en">Get bonus</span>
+                  <span class="de">Bonus holen</span>
+                  <span class="pl">Odbierz bonus</span>
+                  <span class="ru">Получить бонус</span>
+                  <span class="fi">Lunasta bonus</span>
+                  <span class="pt">Obter bônus</span>
+                  <span class="cz">Získat bonus</span>
+                  <span class="es">Obtener bono</span>
+                  <span class="hu">Bónusz megszerzése</span>
+                  <span class="fr">Obtenir le bonus</span>
+                  <span class="ph">Kunin ang bonus</span>
+                  <span class="vn">Nhận thưởng</span>
+                  <span class="th">รับโบนัส</span>
+                  <span class="jp">ボーナスを獲得</span>
+                  <span class="dk">Få bonus</span>
+                  <span class="no">Få bonus</span>
+                  <span class="gr">Λάβετε μπόνους</span>
+                  <span class="lt">Gauti premiją</span>
+                  <span class="lv">Saņemt bonusu</span>
+                  <span class="ee">Saa boonus</span>
+                  <span class="sk">Získať bonus</span>
+                  <span class="bg">Вземете бонус</span>
+                  <span class="ro">Revendică bonusul</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="popup popup_2" id="popup2">
+          <div class="popup__inner">
+            <div class="popup__window" id="popup__window_2">
+              <div class="popup__content">
+                <div class="popup__img">
+                  <picture>
+                    <source srcset="pics/chicken.webp" type="image/webp">
+                    <img src="./index_files/chicken.png" alt="chicken">
+                  </picture>
+                </div>
+                <div class="popup__title">
+                  <span class="en">You have won a</span>
+                  <span class="de">Sie haben einen</span>
+                  <span class="pl">Wygrałeś </span>
+                  <span class="ru">Вы выиграли</span>
+                  <span class="fi">Olet voittanut</span>
+                  <span class="pt">Você <br>
+                    ganhou um
+                  </span>
+                  <span class="cz">Vyhráli jste </span>
+                  <span class="es">Has <br>
+                    ganado un
+                  </span>
+                  <span class="hu">Nyereménye </span>
+                  <span class="fr">Vous avez <br>
+                    gagné un</span>
+                  <span class="ph">Nanalo <br>
+                    ka ng</span>
+                  <span class="vn">Bạn đã thắng</span>
+                  <span class="th">คุณได้รับโบนัส </span>
+                  <span class="jp">125% のボーナスと</span>
+                  <span class="dk">Du har <br>
+                    vundet en</span>
+                  <span class="no">Du har <br>
+                    vunnet en</span>
+                  <span class="gr">Κερδίσατε </span>
+                  <span class="lt">Jūs laimėjote </span>
+                  <span class="lv">Jūs esat laimējis</span>
+                  <span class="ee">Olete võitnud</span>
+                  <span class="sk">Vyhrali ste</span>
+                  <span class="bg">Спечелихте</span>
+                  <span class="ro">Ai câștigat un</span>
+                </div>
+                <div class="popup__win">
+                  <span>1 000 EUR</span>
+                </div>
+                <div class="popup__bonus">
+                  <span class="en">
+                    + 250 Free SPINS</span>
+                  <span class="de">
+                    + 250 Freispiele gewonnen</span>
+                  <span class="pl">
+                    + 250 Darmowych Spinów</span>
+                  <span class="ru">
+                    + 250 бесплатных вращений</span>
+                  <span class="fi">
+                    + 250 ilmaiskierrosta</span>
+                  <span class="pt">
+                    + 250 Giros Grátis</span>
+                  <span class="cz">
+                    + 250 zatočení zdarma</span>
+                  <span class="es">
+                    + 250 Giros Gratis</span>
+                  <span class="hu">
+                    + 250 ingyenes pörgetés</span>
+                  <span class="fr">
+                    + 250 Tours Gratuits</span>
+                  <span class="ph">
+                    + 250 Libreng Spins</span>
+                  <span class="vn">
+                    + 250 Quay Miễn Phí</span>
+                  <span class="th">+ 250 ฟรีสปิน</span>
+                  <span class="jp">+ 250 回のフリースピンを獲得しました。</span>
+                  <span class="dk">
+                    + 250 Gratis Spins</span>
+                  <span class="no">
+                    + 250 Gratisspinn
+                  </span>
+                  <span class="gr">
+                    + 250 Δωρεάν Περιστροφές</span>
+                  <span class="lt">
+                    + 250 Nemokamų Sukimų</span>
+                  <span class="lv">
+                    + 250 Bezmaksas Griezieniem</span>
+                  <span class="ee">
+                    
+                    + 250 Tasuta Keerutust</span>
+                  <span class="sk">
+                    + 250 Voľných Spinov</span>
+                  <span class="bg">
+                    + 250 безплатни завъртания</span>
+                  <span class="ro">
+                      + 250 Rotiri Gratuite
+                  </span>
+                </div>
+                <a href="{offer}" class="popup__terms">
+                  <span class="en">Bonus T&amp;C's</span>
+                  <span class="de">Bonus-Bedingungen</span>
+                  <span class="pl">Warunki bonusu</span>
+                  <span class="ru">Условия бонуса</span>
+                  <span class="fi">Bonuksen ehdot</span>
+                  <span class="pt">Termos e Condições do Bônus</span>
+                  <span class="cz">Podmínky bonusu</span>
+                  <span class="es">Términos y condiciones del bono</span>
+                  <span class="hu">Bónusz feltételek</span>
+                  <span class="fr">Termes et conditions du bonus</span>
+                  <span class="ph">Mga Tuntunin at Kondisyon ng Bonus</span>
+                  <span class="vn">Điều khoản và Điều kiện của Bonus</span>
+                  <span class="th">ข้อกำหนดและเงื่อนไขโบนัส</span>
+                  <span class="jp">ボーナス利用規約</span>
+                  <span class="dk">Bonusbetingelser</span>
+                  <span class="no">Bonusvilkår</span>
+                  <span class="gr">Όροι και Προϋποθέσεις του Μπόνους</span>
+                  <span class="lt">Premijos sąlygos</span>
+                  <span class="lv">Bonusa noteikumi</span>
+                  <span class="ee">Boonuse tingimused</span>
+                  <span class="sk">Podmienky bonusu</span>
+                  <span class="bg">Условия за бонуса</span>
+                  <span class="ro">Termeni și condiții bonus</span>
+                </a>
+                <a href="{offer}" class="popup__btn popup__btn-first button go-btn">
+                  <span class="en">Get bonus</span>
+                  <span class="de">Bonus holen</span>
+                  <span class="pl">Odbierz bonus</span>
+                  <span class="ru">Получить бонус</span>
+                  <span class="fi">Lunasta bonus</span>
+                  <span class="pt">Obter bônus</span>
+                  <span class="cz">Získat bonus</span>
+                  <span class="es">Obtener bono</span>
+                  <span class="hu">Bónusz megszerzése</span>
+                  <span class="fr">Obtenir le bonus</span>
+                  <span class="ph">Kunin ang bonus</span>
+                  <span class="vn">Nhận thưởng</span>
+                  <span class="th">รับโบนัส</span>
+                  <span class="jp">ボーナスを獲得</span>
+                  <span class="dk">Få bonus</span>
+                  <span class="no">Få bonus</span>
+                  <span class="gr">Λάβετε μπόνους</span>
+                  <span class="lt">Gauti premiją</span>
+                  <span class="lv">Saņemt bonusu</span>
+                  <span class="ee">Saa boonus</span>
+                  <span class="sk">Získať bonus</span>
+                  <span class="bg">Вземете бонус</span>
+                  <span class="ro">Revendică bonusul</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <script src="./index_files/createjs.min.js"></script>
+  <script src="./index_files/anim.js"></script>
+  <script src="./index_files/modernizr-webp.js"></script>
+  <script src="./index_files/particles.min.js"></script>
+  <script src="./index_files/index.js"></script>
+
+
+
+  <script>
+/* ===== DOM ===== */
+const goBtn       = document.getElementById('go-btn');
+const cashBtn     = document.getElementById('cash-btn');
+const balanceEl   = document.getElementById('balance');
+
+const container   = document.getElementById('game');  
+const track       = document.getElementById('track');  
+const chicken     = document.querySelector('.chicken');
+const lanes       = [...document.querySelectorAll('.lane')];
+const spawnEl     = document.querySelector('.spawn');
+
+/* Sparkles overlay */
+const sparklesEl  = document.getElementById('sparkles');
+const sparkleLayers = sparklesEl ? [...sparklesEl.querySelectorAll('.sparkles-layer')] : [];
+
+/* Popup */
+const popup1      = document.getElementById('popup1');
+const popup2      = document.getElementById('popup2');
+const popupWin1   = document.getElementById('popup__window_1');
+const popupWin2   = document.getElementById('popup__window_2');
+
+/* ===== STATE ===== */
+let step = 0;                 
+let trackX = 0;
+const chickenHalf = 60;
+const MULTS = [1.50, 1.85, 1.95, 2.00, 2.10, 2.20];
+
+let balanceValue = (function () {
+  const txt = (balanceEl?.textContent || '20').replace(/[^\d.,]/g, '').replace(',', '.');
+  const n = parseFloat(txt);
+  return Number.isFinite(n) ? n : 20;
+})();
+
+let sparklesPlayed = false;
+let popupShown = false;
+
+/* ===== HELPERS ===== */
+function centerXInTrack(el){
+  if (el.classList.contains('lane') || el.classList.contains('spawn')) {
+    return parseInt(el.style.left || '0', 10) || 0;  
+  }
+  const r  = el.getBoundingClientRect();
+  const rt = track.getBoundingClientRect();
+  return r.left + r.width/2 - rt.left;
+}
+function clampTrackX(x){
+  const maxTravel = track.offsetWidth - container.clientWidth;
+  return Math.max(-maxTravel, Math.min(0, x));
+}
+function placeChickenAtScreenX(x){
+  chicken.style.left = (x - chickenHalf) + 'px';
+}
+
+/* Прыжок курицы */
+function hop(isFinal=false){
+  chicken.classList.remove('hop');
+  void chicken.offsetWidth;  
+  chicken.classList.add('hop');
+
+  if (isFinal) {
+    chicken.classList.add('celebrate');
+    playSparklesOnce();
+    setTimeout(openPopup, 1200);
+  }
+}
+
+
+/* Флип в монетку */
+function flipToCoin(laneEl) {
+  if (laneEl.classList.contains('gold-egg')) return;
+  if (laneEl.classList.contains('flipped')) return;
+
+  const img = laneEl.querySelector('img');
+  laneEl.classList.add('flipped');
+
+  // шаг 1: схлопывание
+  img.classList.add('flip-out');
+
+  // шаг 2: после схлопывания меняем картинку
+  setTimeout(() => {
+    img.src = 'pics/gold-coin.png';
+    img.alt = 'Coin';
+
+    // форс-рефлоу, чтобы браузер «увидел» смену
+    void img.offsetWidth;
+
+    // шаг 3: раскрытие
+    img.classList.remove('flip-out');
+    img.classList.add('flip-in');
+
+    setTimeout(() => img.classList.remove('flip-in'), 200);
+  }, 200);
+}
+
+
+/* Анимация баланса */
+function animateBalance(from, to, ms = 450){
+  const start = performance.now();
+  function frame(t){
+    const k = Math.min((t - start)/ms, 1);
+    const v = from + (to - from)*k;
+    balanceEl.textContent = v.toFixed(2) + ' EUR';
+    if (k < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+
+/* Точное умножение */
+function preciseMul(a, b){
+  const aStr = String(a), bStr = String(b);
+  const aDec = (aStr.split('.')[1] || '').length;
+  const bDec = (bStr.split('.')[1] || '').length;
+  const fA = Math.round(a * Math.pow(10, aDec));
+  const fB = Math.round(b * Math.pow(10, bDec));
+  return (fA * fB) / Math.pow(10, aDec + bDec);
+}
+
+/* ===== SPARKLES ===== */
+function playSparklesOnce(){
+  if (!sparklesEl || sparklesPlayed) return;
+  sparklesPlayed = true;
+
+  sparkleLayers.forEach(layer => {
+    layer.style.animation = 'none';
+    void layer.offsetWidth;
+    layer.style.animation = '';
+    layer.style.animationPlayState = 'running';
+  });
+
+  sparklesEl.classList.add('active');
+  sparklesEl.style.opacity = '1';
+
+  setTimeout(() => {
+    sparklesEl.classList.remove('active');
+    sparklesEl.style.opacity = '';
+  }, 3500);
+}
+
+/* ===== POPUP ===== */
+function openPopup(){
+  if (!popup2 || popupShown) return;
+  popupShown = true;
+
+  // Используем классы для правильной активации popup_2
+  popup2.classList.add('popup__show');
+  popupWin2.classList.add('popup__window_show');
+  document.body.classList.add('popup-bg');
+
+  // Дополнительно устанавливаем стили для анимации
+  popup2.style.display = 'block';
+  popup2.style.visibility = 'visible';
+  popup2.style.opacity = '1';
+  popup2.removeAttribute('aria-hidden');
+
+  if (popupWin2) {
+    popupWin2.style.display = 'block';
+    popupWin2.style.transform = 'scale(0.92)';
+    popupWin2.style.opacity = '0';
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        popupWin2.style.transition = 'transform .25s ease, opacity .25s ease';
+        popupWin2.style.transform = 'scale(1)';
+        popupWin2.style.opacity = '1';
+      });
+    });
+  }
+}
+function closePopup(){
+  return
+  // Закрываем оба popup-а
+  // if (popup1) {
+  //   popup1.classList.remove('popup__show');
+  //   popupWin1.classList.remove('popup__window_show');
+  // }
+  // if (popup2) {
+  //   popup2.classList.remove('popup__show');
+  //   popupWin2.classList.remove('popup__window_show');
+  // }
+  
+  // popupShown = false;
+  // document.body.classList.remove('popup-bg');
+  
+  // // Анимация закрытия для popup2 (основной)
+  // if (popupWin2) {
+  //   popupWin2.style.transform = 'scale(0.92)';
+  //   popupWin2.style.opacity = '0';
+  // }
+  // if (popupWin1) {
+  //   popupWin1.style.transform = 'scale(0.92)';
+  //   popupWin1.style.opacity = '0';
+  // }
+  
+  // setTimeout(() => {
+  //   [popup1, popup2].forEach(popup => {
+  //     if (popup) {
+  //       popup.style.opacity = '0';
+  //       popup.style.visibility = 'hidden';
+  //       popup.style.display = 'none';
+  //       popup.setAttribute('aria-hidden', 'true');
+  //     }
+  //   });
+    
+  //   [popupWin1, popupWin2].forEach(popupWin => {
+  //     if (popupWin) {
+  //       popupWin.style.display = 'none';
+  //       popupWin.style.transition = '';
+  //       popupWin.style.transform = '';
+  //     }
+  //   });
+  // }, 180);
+}
+
+// Обработчики для обоих popup-ов
+[popup1, popup2].forEach((popup, index) => {
+  if (popup) {
+    const popupWin = index === 0 ? popupWin1 : popupWin2;
+    popup.addEventListener('click', (e)=>{
+      if (!popupWin) return;
+      if (!popupWin.contains(e.target)) closePopup();
+    });
+  }
+});
+
+window.addEventListener('keydown', (e)=>{
+  if (e.key === 'Escape') closePopup();
+});
+
+/* ===== INIT ===== */
+window.addEventListener('load', () => {
+  // Принудительно скрываем прелоадер
+  const preloader = document.querySelector('.preloader');
+  if (preloader) {
+    preloader.style.display = 'none';
+  }
+  
+  const spawnCenterScreen = centerXInTrack(spawnEl) + trackX;
+  placeChickenAtScreenX(spawnCenterScreen);
+  balanceEl.textContent = balanceValue.toFixed(2) + ' EUR';
+});
+
+/* ===== MAIN CLICK ===== */
+if (goBtn) {
+  goBtn.addEventListener('click', () => {
+    if (step >= lanes.length) return;
+
+    if (step === 0 && cashBtn) cashBtn.classList.remove('disabled');
+
+    const targetLane = lanes[step];
+
+    // 1) плавный сдвиг трека
+    const laneCenterTrack   = centerXInTrack(targetLane);
+    const anchorCenterTrack = centerXInTrack(spawnEl);
+    trackX = clampTrackX(-(laneCenterTrack - anchorCenterTrack));
+    track.style.transform = `translateX(${trackX}px)`;
+
+    // 2) курица прыгает
+    const laneCenterScreen = laneCenterTrack + trackX;
+    placeChickenAtScreenX(laneCenterScreen);
+
+    const isLastStep = (step === lanes.length - 1);
+    hop(isLastStep);
+
+
+    setTimeout(() => {
+      flipToCoin(targetLane);
+    }, 120);
+
+    const preloadImages = [
+      "pics/gold-coin.png"
+    ];
+    preloadImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    // 4) баланс
+    const mult = MULTS[step] || 1;
+    const from = balanceValue;
+    let next   = preciseMul(balanceValue, mult);
+    if (isLastStep) next = 1000;
+    balanceValue = next;
+    animateBalance(from, next, 450);
+
+    step++;
+  });
+}
+
+
+</script>
+
+
+
+
+<div id="preloadjs-container" style="visibility: hidden; position: absolute; height: 10px; width: 10px; overflow: hidden; transform: translate(-10px, -10px);"></div>
+</body>
+</html>
